@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ExcelExportController;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('customer/import', [ExcelExportController::class, 'index']);
+Route::post('customer/import', [ExcelExportController::class, 'importExcelData']);
